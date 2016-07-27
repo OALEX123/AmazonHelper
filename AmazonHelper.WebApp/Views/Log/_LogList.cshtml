@@ -1,0 +1,21 @@
+﻿<div class="panel" ng-show="logCtrl.logs.length > 0">
+    <div class="panel-body">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Date Created</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="log in logCtrl.logs">
+                    <td style="width: 150px;"><span ng-bind="log.dateCreated"></span></td>
+                    <td><span ng-bind="log.message"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="alert alert-info" ng-show="logCtrl.logs.length === 0">
+    There are no existing logs.
+</div>

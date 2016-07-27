@@ -1,0 +1,102 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AmazonHelper.Bl", "AmazonHelper.Bl", "{FACEE41B-4A82-45B4-A0D1-63416BE43A23}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AmazonHelper.Common", "AmazonHelper.Common", "{80BAD031-140C-4026-B02A-D77D0471D9E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonHelper.WebApp", "AmazonHelper.WebApp\AmazonHelper.WebApp.csproj", "{33B292A4-3521-483B-9013-A9D975269E25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AmazonHelper.WebApplication", "AmazonHelper.WebApplication", "{C456DACD-9B3A-46DA-A929-EA080FA8186C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonHelper.Business", "AmazonHelper.Bl.Services\AmazonHelper.Business.csproj", "{1C1853E1-2EA4-4619-B46F-6F5BCBF697B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonHelper.WebApp.Infrastructure", "AmazonHelper.WebApp.Infrastructure\AmazonHelper.WebApp.Infrastructure.csproj", "{45EC697A-D80A-4EFA-8523-3FCF8804B45D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonHelper.Common", "AmazonHelper.Common\AmazonHelper.Common.csproj", "{75087003-6342-4E52-BFAD-6CBF69C60DC7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AmazonHelper.Engine", "AmazonHelper.Engine", "{DF6F169C-4B73-4CB0-B784-FCC82A898899}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AmazonHelper.Infrastructure", "AmazonHelper.Infrastructure", "{1B0288EF-5BB7-4459-B2B5-796E018C81CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonHelper.Infrastructure", "AmazonHelper.Infrastructure\AmazonHelper.Infrastructure.csproj", "{7A6C97C0-0C2D-419B-AF61-29501B213013}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonHelper.Engine", "AmazonHelper.Engine\AmazonHelper.Engine.csproj", "{83C33E63-A66C-48AB-A84E-B1FE851E105E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonHelper.WebApp.Resx", "AmazonHelper.WebApp.Resx\AmazonHelper.WebApp.Resx.csproj", "{FF8CD134-0312-4324-B3CC-706C0B0BA58B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{4D45DF84-2A6A-445D-9BE7-16AE15CED762}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleApplication2", "TestConsoleApplication2\TestConsoleApplication2.csproj", "{702D01DC-6E77-4B66-99CA-464D09842B85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AmazonHelper.Service", "AmazonHelper.Service", "{2A1EC596-DE53-49EC-8F73-6CC13AB06967}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonHelper.AmazonRemoteService", "AmazonHelper.AmazonRemoteService\AmazonHelper.AmazonRemoteService.csproj", "{F34C2A96-ACFF-498F-B0B5-F0CE3DC4724D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonHelper.WinService", "AmazonHelper.WinService\AmazonHelper.WinService.csproj", "{1FE28056-D6CB-4AD7-B1BE-2BAB9950E5B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33B292A4-3521-483B-9013-A9D975269E25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33B292A4-3521-483B-9013-A9D975269E25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33B292A4-3521-483B-9013-A9D975269E25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33B292A4-3521-483B-9013-A9D975269E25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C1853E1-2EA4-4619-B46F-6F5BCBF697B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C1853E1-2EA4-4619-B46F-6F5BCBF697B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C1853E1-2EA4-4619-B46F-6F5BCBF697B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C1853E1-2EA4-4619-B46F-6F5BCBF697B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45EC697A-D80A-4EFA-8523-3FCF8804B45D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45EC697A-D80A-4EFA-8523-3FCF8804B45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45EC697A-D80A-4EFA-8523-3FCF8804B45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45EC697A-D80A-4EFA-8523-3FCF8804B45D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75087003-6342-4E52-BFAD-6CBF69C60DC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75087003-6342-4E52-BFAD-6CBF69C60DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75087003-6342-4E52-BFAD-6CBF69C60DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75087003-6342-4E52-BFAD-6CBF69C60DC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A6C97C0-0C2D-419B-AF61-29501B213013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A6C97C0-0C2D-419B-AF61-29501B213013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A6C97C0-0C2D-419B-AF61-29501B213013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A6C97C0-0C2D-419B-AF61-29501B213013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83C33E63-A66C-48AB-A84E-B1FE851E105E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83C33E63-A66C-48AB-A84E-B1FE851E105E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83C33E63-A66C-48AB-A84E-B1FE851E105E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83C33E63-A66C-48AB-A84E-B1FE851E105E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF8CD134-0312-4324-B3CC-706C0B0BA58B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF8CD134-0312-4324-B3CC-706C0B0BA58B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF8CD134-0312-4324-B3CC-706C0B0BA58B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF8CD134-0312-4324-B3CC-706C0B0BA58B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{702D01DC-6E77-4B66-99CA-464D09842B85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{702D01DC-6E77-4B66-99CA-464D09842B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{702D01DC-6E77-4B66-99CA-464D09842B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{702D01DC-6E77-4B66-99CA-464D09842B85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F34C2A96-ACFF-498F-B0B5-F0CE3DC4724D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F34C2A96-ACFF-498F-B0B5-F0CE3DC4724D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F34C2A96-ACFF-498F-B0B5-F0CE3DC4724D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F34C2A96-ACFF-498F-B0B5-F0CE3DC4724D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FE28056-D6CB-4AD7-B1BE-2BAB9950E5B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FE28056-D6CB-4AD7-B1BE-2BAB9950E5B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FE28056-D6CB-4AD7-B1BE-2BAB9950E5B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FE28056-D6CB-4AD7-B1BE-2BAB9950E5B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{33B292A4-3521-483B-9013-A9D975269E25} = {C456DACD-9B3A-46DA-A929-EA080FA8186C}
+		{1C1853E1-2EA4-4619-B46F-6F5BCBF697B4} = {FACEE41B-4A82-45B4-A0D1-63416BE43A23}
+		{45EC697A-D80A-4EFA-8523-3FCF8804B45D} = {C456DACD-9B3A-46DA-A929-EA080FA8186C}
+		{75087003-6342-4E52-BFAD-6CBF69C60DC7} = {80BAD031-140C-4026-B02A-D77D0471D9E3}
+		{7A6C97C0-0C2D-419B-AF61-29501B213013} = {1B0288EF-5BB7-4459-B2B5-796E018C81CC}
+		{83C33E63-A66C-48AB-A84E-B1FE851E105E} = {DF6F169C-4B73-4CB0-B784-FCC82A898899}
+		{FF8CD134-0312-4324-B3CC-706C0B0BA58B} = {C456DACD-9B3A-46DA-A929-EA080FA8186C}
+		{702D01DC-6E77-4B66-99CA-464D09842B85} = {4D45DF84-2A6A-445D-9BE7-16AE15CED762}
+		{F34C2A96-ACFF-498F-B0B5-F0CE3DC4724D} = {2A1EC596-DE53-49EC-8F73-6CC13AB06967}
+		{1FE28056-D6CB-4AD7-B1BE-2BAB9950E5B5} = {2A1EC596-DE53-49EC-8F73-6CC13AB06967}
+	EndGlobalSection
+EndGlobal

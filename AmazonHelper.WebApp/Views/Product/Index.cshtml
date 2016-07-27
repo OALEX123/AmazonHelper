@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Products";
+    Layout = "../Shared/_Layout.cshtml";
+
+    ViewBag.SideNaviItems = new List<NaviItem>
+    {
+    new NaviItem {Title = "Statistics", Url = Url.Action("Index", "Stats")},
+    new NaviItem {Title = "Products", IsActive = true},
+    new NaviItem {Title = "Settings", Url = Url.Action("Index", "Settings")},
+    new NaviItem {Title = "Logs", Url = Url.Action("Index", "Log")}
+    };
+
+    ViewBag.BreadCrumbs = new List<NaviItem>
+        {
+        new NaviItem {Title = "Home", Url = Url.Action("Index", "Home")},
+        new NaviItem {Title = "Products", IsActive = true}
+        };
+        }
+
+        <script type="text/javascript">
+            var routings = {
+                getProductsUrl: '@Url.Action("GetProductsPaged", "Product")',
+                saveProductUrl: '@Url.Action("SaveProduct", "Product")',
+                removeProductUrl: '@Url.Action("RemoveProduct", "Product")',
+                getProductUrl: '@Url.Action("GetProduct", "Product")',
+                getProductGroupsUrl: '@Url.Action("GetProductGroupes", "Product")',
+                getCustomActionUrl: '@Url.Action("CustomAction", "Product")'
+            };
+        </script>
+
+        <!--BEGIN CONTENT-->
+        <div class="page-content">
+            <div id="tab-general">
+                <div class="row mbl">
+                    <div class="col-lg-12">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <ul class="nav nav-tabs">
+                                    @*
+                                    <li><a href="#tab-messages" data-toggle="tab">Messages</a></li>*@
+                                </ul>
+                                <div id="generalTabContent" class="tab-content" ng-app="productManagementApp" ng-controller="ProductController as productCtrl" ng-cloak>
+                                    @Html.Partial("_AddProductModal")
+                                    <div id="tab-messages" class="tab-pane fade in active">
+                                        <div class="row mbl">
+                                            <div class="col-lg-7">
+                                                @*add product button*@
+                                                <span style="margin-left: 15px"></span><div class="icheckbox_minimal-grey" style="position: relative;">
+                                                    <input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins>
+                                                </div><a href="#" class="btn btn-success btn-sm mlm mrm" ng-click="productCtrl.addProduct()">
+                                                    Add Product
+                                                </a>
+                                                @*refresh button*@
+                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-default mls mrs"
+                                                        data-original-title="Refresh" ng-click="productCtrl.reloadProducts()">
+                                                    <span class="fa fa-refresh"></span>
+                                                </button>
+                                                @*action button*@
+                                                <div class="btn-group">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                                                        More
+                                                        &nbsp;<span class="caret"></span>
+                                                    </button>
+                                                    <ul role="menu" class="dropdown-menu">
+                                                        <li><a href="#" ng-click="productCtrl.performCustomAction(productCtrl.customActions.activateSelected)"><i class="glyphicon glyphicon-plus-sign text-info"></i>Activate Selected</a></li>
+                                                        <li><a href="#" ng-click="productCtrl.performCustomAction(productCtrl.customActions.deactivateSelected)"><i class="glyphicon glyphicon-remove-sign text-danger"></i>Deactivate Selected</a></li>
+                                                        @*
+                                                        <li class="divider"></li>
+                                                        <li class="text-center pbm">
+                                                            <small class="text-muted">Select messages to see more actions</small>
+                                                        </li>*@
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="input-group">
+                                                    <input type="text" placeholder="enter asin" class="form-control" ng-model="productCtrl.productFilter.asin"><span class="input-group-btn">
+                                                        <button type="button" class="btn btn-white" ng-click="productCtrl.reloadProducts()">Search</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mbl">
+                                            <div class="col-lg-10">
+                                                <div class="btn-group" style="padding-left: 25px;">
+                                                    <button type="button" class="btn btn-default" ng-click="productCtrl.selectProducts()"><div class="icheckbox_minimal-grey" style="position: relative;"><input ng-model="productCtrl.isAllSelected" type="checkbox" style="margin: 0px; vertical-align: middle; position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);" class="checkall"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div></button>
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
+                                                    <ul role="menu" class="dropdown-menu">
+                                                        <li><a href="#" ng-click="productCtrl.selectProducts(productCtrl.selection.selectAll)">All</a></li>
+                                                        <li><a href="#" ng-click="productCtrl.selectProducts(productCtrl.selection.selectNone)">None</a></li>
+                                                        <li><a href="#" ng-click="productCtrl.selectProducts(productCtrl.selection.selectActive)">Active</a></li>
+                                                        <li><a href="#" ng-click="productCtrl.selectProducts(productCtrl.selection.selectStopped)">Stopped</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                @*<label>Show</label>*@
+                                                <select class="form-control" ng-model="productCtrl.productsPageSize">
+                                                    <option ng-repeat="option in productCtrl.productsPagingOptions" value="{{option}}">{{option}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        @Html.Partial("_ProductList")
+                                        <div class="pageable-holder">
+                                            <div class="text-right">
+                                                <uib-pagination total-items="productCtrl.productsTotalCount" items-per-page="productCtrl.productsPageSize" ng-model="productCtrl.productsPageNum"
+                                                                max-size="5" force-ellipses="true" boundary-link-numbers="true"></uib-pagination>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END CONTENT-->
+        @section scripts{
+        @Url.CombresLink("productJs")
+        }

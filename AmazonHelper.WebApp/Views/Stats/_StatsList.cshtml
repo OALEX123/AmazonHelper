@@ -1,0 +1,41 @@
+﻿<div class="container stats-holder" ng-show="statsCtrl.stats.length > 0">
+    <div class="row stats-header">
+        <div class="col-md-2">Asin</div>
+        <div class="col-md-2">Group Name</div>
+        <div class="col-md-2">First Date</div>
+        <div class="col-md-2">Last Date</div>
+        <div class="col-md-2">Successed</div>
+        <div class="col-md-2">Total</div>
+    </div>
+    <div ng-repeat="stat in statsCtrl.stats" class="stats-body">
+        <div class="row stats-row">
+            <div class="col-md-2 stats-cell"><span ng-bind="stat.asin"></span></div>
+            <div class="col-md-2 stats-cell">&nbsp;</div>
+            <div class="col-md-2 stats-cell">&nbsp;</div>
+            <div class="col-md-2 stats-cell">&nbsp;</div>
+            <div class="col-md-2 stats-cell"><span ng-bind="stat.totalSuccessed"></span></div>
+            <div class="col-md-2 stats-cell"><span ng-bind="stat.total"></span></div>
+        </div>
+        <div ng-repeat="group in stat.groups" class="row stats-row">
+            <div class="col-md-2 stats-cell">&nbsp;</div>
+            <div class="col-md-2 stats-cell"><span ng-bind="group.groupName"></span></div>
+            <div class="col-md-2 stats-cell"><span ng-bind="group.startDate"></span></div>
+            <div class="col-md-2 stats-cell"><span ng-bind="group.endDate"></span></div>
+            <div class="col-md-2 stats-cell"><span ng-bind="group.totalSuccessed"></span></div>
+            <div class="col-md-2 stats-cell"><span ng-bind="group.total"></span></div>
+            <div ng-repeat="statByDay in group.statsByDay" >
+                <div class="col-md-2 stats-cell">&nbsp;</div>
+                <div class="col-md-2 stats-cell">&nbsp;</div>
+                <div class="col-md-2 stats-cell">&nbsp;</div>
+                <div class="col-md-2 stats-cell"><span ng-bind="statByDay.fullName"></span></div>
+                <div class="col-md-2 stats-cell"><span ng-bind="statByDay.totalSuccessed"></span></div>
+                <div class="col-md-2 stats-cell"><span ng-bind="statByDay.total"></span></div>
+            </div>
+        </div>
+        <br /><br />
+    </div>
+</div>
+
+<div class="alert alert-info" ng-show="statsCtrl.stats.length === 0">
+    No stats avaliable.
+</div>

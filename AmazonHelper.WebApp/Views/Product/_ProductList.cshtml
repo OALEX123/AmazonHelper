@@ -1,0 +1,36 @@
+﻿<div class="panel" ng-show="productCtrl.products.length > 0">
+    <div class="panel-body">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th style="text-align: center;">
+                        @*<input type="checkbox" class="btn btn-danger" />*@
+                    </th>
+                    <th>Asin</th>
+                    <th>Product Name</th>
+                    <th>Group Name</th>
+                    <th>Status</th>
+                    <th>Notify</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in productCtrl.products">
+                    <td style="text-align: center;"><input type="checkbox" ng-model="product.isSelected" /></td>
+                    <td class="active"><span ng-bind="product.asin"></span></td>
+                    <td><span ng-bind="product.productName"></span></td>
+                    <td><span ng-bind="product.groupName"></span></td>
+                    <td style="text-align: center;"><span class="label label-sm" ng-class="product.isActive ? 'label-success' : 'label-danger'" ng-bind="product.isActiveState"></span></td>
+                    <td style="text-align: center;"><span class="label label-sm" ng-class="product.isNotificationEnabled ? 'label-success' : 'label-danger'" ng-bind="product.isNotificationEnabledState"></span></td>
+                    <td style="text-align: center;">
+                        <a href="javascript:void(0);" ng-click="productCtrl.editProduct(product)"><i class="glyphicon glyphicon-edit" style="color: #61adf0"></i>&nbsp;Edit</a>&nbsp;&nbsp;
+                        <a href="javascript:void(0);" ng-click="productCtrl.removeProduct(product)"><i class="glyphicon glyphicon-remove" style="color: red;"></i>&nbsp;Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="alert alert-info" ng-show="productCtrl.products.length === 0">
+    There are no existing products. Please add some.
+</div>

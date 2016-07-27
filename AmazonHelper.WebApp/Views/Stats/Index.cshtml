@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Statistics";
+    Layout = "../Shared/_Layout.cshtml";
+
+    ViewBag.SideNaviItems = new List<NaviItem>
+    {
+    new NaviItem {Title = "Statistics", Url = Url.Action("Index", "Stats"), IsActive = true},
+    new NaviItem {Title = "Products", Url = Url.Action("Index", "Product")},
+    new NaviItem {Title = "Settings", Url = Url.Action("Index", "Settings")},
+    new NaviItem {Title = "Logs", Url = Url.Action("Index", "Log")}
+    };
+
+    ViewBag.BreadCrumbs = new List<NaviItem>
+        {
+        new NaviItem {Title = "Home", Url = Url.Action("Index", "Stats")},
+        new NaviItem {Title = "Statistics", IsActive = true}
+        };
+        }
+
+        <script type="text/javascript">
+            var routings = {
+                getStatsUrl: '@Url.Action("GetStatsPaged", "Stats")',
+                customActionUrl: '@Url.Action("CustomAction", "Stats")'
+            };
+        </script>
+
+        @Url.CombresLink("statsCss")
+
+        <!--BEGIN CONTENT-->
+        <div class="page-content">
+            <div id="tab-general">
+                <div class="row mbl">
+                    <div class="col-lg-12">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <ul class="nav nav-tabs">
+                                    @*
+                                    <li><a href="#tab-messages" data-toggle="tab">Messages</a></li>*@
+                                </ul>
+                                <div id="generalTabContent" class="tab-content" ng-app="statsManagementApp" ng-controller="StatsController as statsCtrl" ng-cloak>
+                                    <div id="tab-messages" class="tab-pane fade in active">
+                                        <div class="row mbl">
+                                            <div class="col-lg-7">
+                                                @*refresh button*@
+                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-default mls mrs"
+                                                        data-original-title="Refresh" ng-click="statsCtrl.reloadStats()">
+                                                    <span class="fa fa-refresh"></span>
+                                                </button>
+                                                @*action button*@
+                                                <div class="btn-group">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                                                        More
+                                                        &nbsp;<span class="caret"></span>
+                                                    </button>
+                                                    <ul role="menu" class="dropdown-menu">
+                                                        <li><a href="#" ng-click="statsCtrl.performCustomAction(statsCtrl.customActions.removeForLastWeek)">Remove for last 7 days</a></li>
+                                                        <li><a href="#" ng-click="statsCtrl.performCustomAction(statsCtrl.customActions.removeAll)">Remove All Stats</a></li>
+                                                        @*
+                                                        <li class="divider"></li>
+                                                        <li class="text-center pbm">
+                                                            <small class="text-muted">Select messages to see more actions</small>
+                                                        </li>*@
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="input-group">
+                                                    <input type="text" placeholder="enter asin" class="form-control" ng-model="statsCtrl.statsFilter.asin"><span class="input-group-btn">
+                                                        <button type="button" class="btn btn-white" ng-click="statsCtrl.reloadStats()">Search</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mbl">
+                                            <div class="col-lg-10">
+                                                <span>Next update in&nbsp;<span ng-bind="statsCtrl.timerLabel"></span>&nbsp;seconds</span>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                @*<label>Show</label>*@
+                                                <select class="form-control" ng-model="statsCtrl.statsPageSize">
+                                                    <option ng-repeat="option in statsCtrl.statsPagingOptions" value="{{option}}">{{option}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        @Html.Partial("_StatsList")
+                                        <div class="pageable-holder">
+                                            <div class="text-right">
+                                                <uib-pagination total-items="statsCtrl.statsTotalCount" items-per-page="statsCtrl.statsPageSize" ng-model="statsCtrl.statsPageNum" max-size="5" force-ellipses="true" boundary-link-numbers="true"></uib-pagination>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END CONTENT-->
+        @section scripts{
+        @Url.CombresLink("statsJs")
+        }

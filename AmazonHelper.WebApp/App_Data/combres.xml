@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  This file contains basic settings needed for most web apps.
+  For full Combres settings (with explanation), refer to the sample definition file: combres_full_with_annotation.xml
+  Also, refer to Combres' documentation: http://combres.codeplex.com/documentation	
+-->
+<combres xmlns='urn:combres'>
+  <filters>
+    <filter type="Combres.Filters.FixUrlsInCssFilter, Combres" />
+    <filter type="AmazonHelper.WebApp.Infrastructure.Filters.DotLessCssFilter, AmazonHelper.WebApp.Infrastructure" />
+  </filters>
+  <resourceSets url="~/combres.axd"
+                defaultDuration="30"
+                defaultVersion="auto"
+                defaultDebugEnabled="true"
+                defaultIgnorePipelineWhenDebug="true"
+                localChangeMonitorInterval="30"
+                remoteChangeMonitorInterval="60"
+                >
+
+    <resourceSet name="bootstrapCss" type="css">
+      <resource path="~/content/css/libs/bootstrap/bootstrap.min.css" />
+    </resourceSet>
+
+    <resourceSet name="siteCommonCss" type="css">
+      <resource reference="bootstrapCss" />
+      <resource path="~/content/css/libs/angular/loadingbar/loading-bar.css" />
+      <resource path="~/content/css/common/font-awesome.min.css" />
+      <resource path="~/content/css/common/common.less" />
+      <resource path="~/content/css/common/style-responsive.less" />
+    </resourceSet>
+
+    <resourceSet name="statsCss" type="css">
+      <resource path="~/content/css/pages/stats/stats.less" />
+    </resourceSet>
+
+    <resourceSet name="logCss" type="css">
+      <resource path="~/content/css/pages/log/log.less" />
+    </resourceSet>
+
+    <resourceSet name="jQueryJs" type="js">
+      <resource path="~/scripts/libs/jquery/jquery-2.1.1.min.js" />
+    </resourceSet>
+
+    <resourceSet name="angularJs" type="js">
+      <resource path="~/scripts/libs/angular/angular.js" />
+      <resource path="~/scripts/site/common/angularcustom/ui-bootstrap-tpls-1.3.1.min.js" />
+      <resource path="~/scripts/site/common/angularcustom/ui-directives.js" />
+      <resource path="~/scripts/site/common/angularcustom/common-services.js" />
+      <resource path="~/scripts/libs/angular/loadingbar/loading-bar.js" />
+    </resourceSet>
+
+    <resourceSet name="bootstrapJs" type="js">
+      <resource path="~/scripts/libs/bootstrap/bootstrap.min.js" />
+    </resourceSet>
+
+    <resourceSet name="lessCssJs" type="js">
+      <resource path="~/scripts/libs/less/less.min.js" />
+    </resourceSet>
+
+    <resourceSet name="siteLibsJs" type="js">
+      <resource reference="jQueryJs" />
+      <resource reference="bootstrapJs" />
+      <resource reference="angularJs" />
+    </resourceSet>
+
+    <resourceSet name="siteCommonJs" type="js">
+      <resource reference="siteLibsJs" />
+    </resourceSet>
+
+    <resourceSet name="productJs" type="js">
+      <resource path="~/scripts/site/pages/product/productManagementApp.js" />
+      <resource path="~/scripts/site/pages/product/productService.js" />
+      <resource path="~/scripts/site/pages/product/productController.js" />
+    </resourceSet>
+
+    <resourceSet name="statsJs" type="js">
+      <resource path="~/scripts/site/pages/stats/statsManagementApp.js" />
+      <resource path="~/scripts/site/pages/stats/statsService.js" />
+      <resource path="~/scripts/site/pages/stats/statsController.js" />
+    </resourceSet>
+
+    <resourceSet name="settingsJs" type="js">
+      <resource path="~/scripts/site/pages/settings/settingsManagementApp.js" />
+      <resource path="~/scripts/site/pages/settings/settingsService.js" />
+      <resource path="~/scripts/site/pages/settings/settingsController.js" />
+    </resourceSet>
+
+    <resourceSet name="logJs" type="js">
+      <resource path="~/scripts/site/pages/log/logManagementApp.js" />
+      <resource path="~/scripts/site/pages/log/logService.js" />
+      <resource path="~/scripts/site/pages/log/logController.js" />
+    </resourceSet>
+
+  </resourceSets>
+</combres>

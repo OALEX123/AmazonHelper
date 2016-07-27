@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Logs";
+    Layout = "../Shared/_Layout.cshtml";
+
+    ViewBag.SideNaviItems = new List<NaviItem>
+    {
+        new NaviItem {Title = "Statistics", Url = Url.Action("Index", "Stats")},
+        new NaviItem {Title = "Products", Url = Url.Action("Index", "Product")},
+        new NaviItem {Title = "Settings", Url = Url.Action("Index", "Settings")},
+        new NaviItem {Title = "Logs", Url = Url.Action("Index", "Log"), IsActive = true}
+    };
+
+    ViewBag.BreadCrumbs = new List<NaviItem>
+    {
+        new NaviItem {Title = "Home", Url = Url.Action("Index", "Stats")},
+        new NaviItem {Title = "Logs", IsActive = true}
+    };
+}
+
+<script type="text/javascript">
+    var routings = {
+        getLogsUrl: '@Url.Action("GetLogsPaged", "Log")'
+    };
+</script>
+
+@Url.CombresLink("logCss")
+
+<!--BEGIN CONTENT-->
+<div class="page-content">
+    <div id="tab-general">
+        <div class="row mbl">
+            <div class="col-lg-12">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs">
+                            @*<li ><a href="#tab-messages" data-toggle="tab">Messages</a></li>*@
+                        </ul>
+                        <div id="generalTabContent" class="tab-content" ng-app="logManagementApp" ng-controller="LogController as logCtrl" ng-cloak>
+                            <div id="tab-messages" class="tab-pane fade in active">
+                                <div class="row mbl">
+                                    <div class="col-lg-10">
+                                        <button type="button" data-toggle="tooltip" title="" class="btn btn-default mls mrs"
+                                                data-original-title="Refresh" ng-click="logCtrl.reloadLogs()">
+                                            <span class="fa fa-refresh"></span>
+                                        </button>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        @*<label>Show</label>*@
+                                        <select class="form-control" ng-model="logCtrl.logPageSize">
+                                            <option ng-repeat="option in logCtrl.logPagingOptions" value="{{option}}">{{option}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                @Html.Partial("_LogList")
+                                <div class="pageable-holder">
+                                    <div class="text-right">
+                                        <pageable page-num="logCtrl.logPageNum" page-size="logCtrl.logPageSize" total-count="logCtrl.logTotalCount"
+                                                  on-page-changed="logCtrl.onLogsPageChanged"></pageable>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END CONTENT-->
+@section scripts{
+    @Url.CombresLink("logJs")
+}

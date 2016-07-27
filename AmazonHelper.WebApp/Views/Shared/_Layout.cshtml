@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Url.CombresLink("siteCommonCss")
+    @RenderSection("pageCss", false)
+    @Url.CombresLink("lessCssJs")
+</head>
+<body class="pace-done">
+    <!--BEGIN TOPBAR-->
+    <div id="header-topbar-option-demo" class="page-header-topbar">
+        <nav id="topbar" role="navigation" style="margin-bottom: 0;" data-step="3" class="navbar navbar-default navbar-static-top">
+            <div class="navbar-header">
+                <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <a id="logo" href="index.html" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text" style="display: none">Xperia</span><span class="logo-text-icon"><img src="~/Content/Images/logo.png" alt="xperia" class="img-responsive"></span></a>
+            </div>
+            <div class="topbar-main">
+                <a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
+            </div>
+        </nav>
+
+    </div>
+    <!--END TOPBAR-->
+    <div id="wrapper">
+        @if (ViewBag.SideNaviItems != null)
+            {
+            @Html.Partial("_SideBarNavi", ViewBag.SideNaviItems as IEnumerable<NaviItem>)
+        }
+        <div id="page-wrapper">
+            @if (ViewBag.BreadCrumbs != null)
+            {
+                @Html.Partial("_BreadCrumbs", ViewBag.BreadCrumbs as IEnumerable<NaviItem>)
+            }
+
+            @RenderBody()
+        </div>
+        <div id="footer">
+            <div class="copyright">
+                <a href="#">© ThemesGround 2015. Designed by ThemesGround</a>
+            </div>
+        </div>
+    </div>
+    <!--BEGIN FOOTER-->
+    <!--END FOOTER-->
+    @Url.CombresLink("siteCommonJs")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
